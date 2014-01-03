@@ -8,6 +8,7 @@ scalaVersion := "2.10.2"
 
 resolvers ++= Seq("spray repo" at "http://repo.spray.io",
                   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/",
+                  "Sonatype OSS Releases"  at "http://oss.sonatype.org/content/repositories/releases/",
                   "Local Maven Repository" at "file://"+Path.userHome.absolutePath+"/.m2/repository")
 
 publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
@@ -16,11 +17,14 @@ libraryDependencies ++= Seq(
   "com.dius" %% "pact-model-jvm" % "1.0-SNAPSHOT",
   "org.scalatest" % "scalatest_2.10" % "2.0.RC3", //scalatest is the runtime test library, hoping for simple single thread
   "commons-io" % "commons-io" % "2.4",
-  "io.spray" % "spray-client" % "1.2-RC1",
-  "io.spray" % "spray-can" % "1.2-RC1",
+  "io.spray" % "spray-client" % "1.2.0",
+  "io.spray" % "spray-can" % "1.2.0",
+  "io.spray" % "spray-routing" % "1.2.0",
   "com.typesafe.akka" %% "akka-actor" % "2.2.3",
   "com.typesafe.play" %% "play-json" % "2.2.0",
-  "org.specs2" %% "specs2" % "2.3.1" % "test",
+  "com.typesafe.play" %% "play-ws" % "2.3-20131213005945Z",
+  "com.typesafe.play" %% "play-test" % "2.3-20131213005945Z",
+  "org.specs2" %% "specs2-core" % "2.3.7",
   "org.mockito" % "mockito-core" % "1.8.5" % "test"
 )
 

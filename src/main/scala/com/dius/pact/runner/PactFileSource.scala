@@ -5,11 +5,14 @@ import org.apache.commons.io.FileUtils
 import play.api.libs.json._
 import play.api.libs.functional.syntax._
 import com.dius.pact.model._
+import java.util
 
 object PactFileSource {
   def loadFiles(baseDir:String):Seq[Pact] = {
     import scala.collection.JavaConversions._
-    FileUtils.listFiles(new File(baseDir), Array("json"), true).asInstanceOf[java.util.LinkedList[File]].map(loadFile)
+    val lists = FileUtils.listFiles(new File(baseDir), Array("json"), true)
+    val files: util.LinkedList[File] = lists.asInstanceOf[util.LinkedList[File]]
+    files.map(loadFile)
   }
 
   def loadFile(source:File):Pact = {
